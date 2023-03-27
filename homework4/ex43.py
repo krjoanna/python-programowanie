@@ -8,11 +8,13 @@
 def iter_even():   
     i = 0
     while True:
-        yield i+2
+        yield i
+        i = i +2
 
 def iter_odd():
-     i = 1
+    i = 1
     while True:
-        yield i+2
+        yield i
+        i = i +2
 
-def iter_power():
+#def iter_power():
