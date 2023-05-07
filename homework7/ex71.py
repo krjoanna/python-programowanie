@@ -58,3 +58,7 @@ v2 = Vector(3, 1, 2)
 print(find_axis(v1,v2))
 
 
+#test2 parallel vectors
+#v1= Vector(-12, 28, -32)
+#v2= Vector(-3, 7, -8)
+#print(find_axis(v1,v2))
