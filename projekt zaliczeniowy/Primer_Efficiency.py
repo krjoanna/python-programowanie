@@ -47,17 +47,16 @@ for primer_name in primer_names:
 
     # Obliczenie wydajności starterów równaniem:  10^(-1/a) - 1
     efficiency = "{:.2%}".format(10 ** (-1 / a_parameter) - 1)
+     # dodanie wyliczonych wartości wydajności do dataframe 
+    efficiency_df = pd.concat([efficiency_df, pd.DataFrame({"Primer Name": [primer_name], "Efficiency": [efficiency]})])
 
     # Dodanie do wykresu krzywej dopasowania liniowego
-    x_fit = np.linspace(min(x_values), max(x_values), 100)
-    y_fit = regression_function(x_fit, a_parameter, b_parameter)
-    ax.plot(x_fit, y_fit, linestyle= 'dashed')
+    plt.plot(x_values, y_predicted, linestyle = "dashed")
+    
     fig.text(0.85, n, f'{primer_name}'
             f'\ny = {a_parameter:.4f}x + {b_parameter:.4f}'
             f'\nR^2 = {r2:.4f} \nEfficiency={efficiency}\n\n')
 
-    # dodanie wyliczonych wartości wydajności do dataframe 
-    efficiency_df = pd.concat([efficiency_df, pd.DataFrame({"Primer Name": [primer_name], "Efficiency": [efficiency]})])
     n -= 0.1  #przesunięcie tekstu w legendzie
 
 # dopasowanie wykresu, opisanie wykresu, etc.
